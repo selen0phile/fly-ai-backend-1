@@ -50,5 +50,7 @@ app.use('/api/v1', chatRouter)
 
 app.use(errorHandler)
 
-app.listen(3000, () => console.log('running'))
+const port = process.env.PORT || 3000
+
+app.listen(port, () => console.log('running'))
 
