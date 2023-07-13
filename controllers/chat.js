@@ -1,16 +1,16 @@
 const { Configuration, OpenAIApi } = require("openai");
-// const admin = require("firebase-admin");
+const admin = require("firebase-admin");
 
-// const serviceAccount = require("../firebase.json");
+const serviceAccount = require("../firebase.json");
 
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   storageBucket: "genesis-2ddee.appspot.com",
-// });
-// const bucket = admin.storage().bucket();
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  storageBucket: "genesis-2ddee.appspot.com",
+});
+const bucket = admin.storage().bucket();
 
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
@@ -25,9 +25,9 @@ const get_prompt = (topic, pagenum) => {
   const pdf_prompt =
     "give a page-by-page specification containing text and generate-image-prompt-for-openai-api for a child-friendly pdf book with no more than " +
     pagenum +
-    " pages about the " +
+    " pages about the topic " +
     topic +
-    " with one image on every page, interesting coherent 2-sentenced-text related to the topic on every page, formatted as {pages: [{text:'',prompt:''}etc]}, no other text in front, just json with no new line, easily parsable, don't mention 'Page' in text or 'Image' in prompt";
+    " with one image on every page, interesting coherent 2-sentenced-text related to the topic on every page, formatted as {pages: [{text:'',prompt:''}etc]}, no other text in front, just json with no new line, easily parsable, dont write Page number in text, dont write the word Image in prompt, only solid text and prompt";
   return pdf_prompt;
 };
 
@@ -83,7 +83,7 @@ async function generatePDF(topic, pagenum) {
     console.log(filename);
 
     // Create a writable stream to output the PDF to a file
-    const writeStream = fs.createWriteStream('/tmp/' + filename  );
+    const writeStream = fs.createWriteStream(filename);
     doc.pipe(writeStream);
 
     // Set enchanting font and font size
@@ -127,26 +127,26 @@ async function generatePDF(topic, pagenum) {
       console.log("PDF generated successfully.");
     });
 
-//   const destinationPath = "generated/" + filename;
-//   try {
-//     await bucket.upload('/tmp/' + filename, {
-//       destination: destinationPath,
-//     });
-//     console.log("File uploaded successfully.");
+  const destinationPath = "generated/" + filename;
+  try {
+    await bucket.upload(filename, {
+      destination: destinationPath,
+    });
+    console.log("File uploaded successfully.");
 
-//     const options = {
-//       action: "read",
-//       expires: "03-01-2500", // Set an expiration date or timestamp for the URL if desired
-//     };
-//     const [url] = await bucket.file(destinationPath).getSignedUrl(options);
-//     const file_link = { url: url };
+    const options = {
+      action: "read",
+      expires: "03-01-2500", // Set an expiration date or timestamp for the URL if desired
+    };
+    const [url] = await bucket.file(destinationPath).getSignedUrl(options);
+    const file_link = { url: url };
 
-//     return file_link;
-//   } catch (error) {
-//     console.error("Error:", error);
-//     const file_link = { url: "dummy_url" };
-//     return file_link;
-//   }
+    return file_link;
+  } catch (error) {
+    console.error("Error:", error);
+    const file_link = { url: "dummy_url" };
+    return file_link;
+  }
 }
 
 /*
@@ -163,8 +163,8 @@ const pdf_prompt = get_prompt(topic,pagenum)
 // Controller Functions
 
 const getTextResponse = async (payload) => {
-  console.log(payload.prompt)
-  const completion = await openai.createChatCompletion({
+	console.log(1111111111111,payload)
+    const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [
       { role: "system", content: "You are a helpful assistant." },
@@ -172,10 +172,9 @@ const getTextResponse = async (payload) => {
     ],
   });
 
-  response = { answer: completion.data.choices[0].message['content'] };
+  response = { answer: completion.data.choices[0].message };
   console.log(response);
-
-  return response
+  return response 
 };
 
 const getPdfResponse = async (payload) => {
