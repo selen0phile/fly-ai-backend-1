@@ -163,6 +163,7 @@ const pdf_prompt = get_prompt(topic,pagenum)
 // Controller Functions
 
 const getTextResponse = async (payload) => {
+  console.log(payload.prompt)
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [
@@ -171,8 +172,10 @@ const getTextResponse = async (payload) => {
     ],
   });
 
-  response = { answer: completion.data.choices[0].message };
+  response = { answer: completion.data.choices[0].message['content'] };
   console.log(response);
+
+  return response
 };
 
 const getPdfResponse = async (payload) => {
