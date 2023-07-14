@@ -5,7 +5,7 @@
 # 1. Users
 
 ## a. Get All Books (Paginated)
-Endpoint URL: `/api/v1/book?per_page=10`  
+Endpoint URL: `/api/v1/book?page=1&per_page=2`  
 Request Artfacts: `None`  
 Example Response:  
 ```json
@@ -31,7 +31,7 @@ Example Response:
   "keywords": "classic, romance, social critique",
   "description": "Set in the 19th century, Pride and Prejudice unravels the complexities of societal norms, love, and personal growth as Elizabeth Bennet navigates the challenges of her class-conscious world, facing her own prejudices and ultimately discovering the power of true love.",
   "public": true
-  },....... 8 more
+  }
 ]
 ```
 
