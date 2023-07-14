@@ -2,11 +2,11 @@
 
 # API Endpoints
 
-# 1. Users
+# 1. Books
 
 ## a. Get All Books (Paginated)
-Endpoint URL: `/api/v1/book?page=2&per_page=1`  
-Request Artfacts: `None`  
+Endpoint URL: `GET /api/v1/book?page=2&per_page=1`  
+Request Body: `None`  
 Example Response:  
 ```json
 [
@@ -24,9 +24,9 @@ Example Response:
 ]
 ```
 
-## a. Query Books by author, title, keyword
-Endpoint URL: `/api/v1/book?author=jaber&title=&keyword=offline`  
-Request Artfacts: `None`  
+## b. Query Books by author, title, keyword
+Endpoint URL: `GET /api/v1/book?author=jaber&title=&keyword=offline`  
+Request Body: `None`  
 Example Response:  
 ```json
 [
@@ -42,5 +42,23 @@ Example Response:
         "public": true
     }
 ]
+```
+
+## c. Get Book from unique bookId
+Endpoint URL: `GET /api/v1/book/14`  
+Request Body: `None`  
+Example Response:  
+```json
+{
+    "id": "64b0354cc7556db149915d7a",
+    "bookId": 14,
+    "author": "jaber",
+    "link": "https://firebasestorage.googleapis.com/v0/b/litcode-ba82a.appspot.com/o/uploads%2FOfflineAllPairShortestPath.pdf?alt=media&token=f3ee15d4-b25c-47e2-84d8-e74cc4274558",
+    "title": "Offline 3",
+    "createdAt": "2023-07-13T17:33:00.833Z",
+    "keywords": "offline, dsa, pera, pain",
+    "description": "This is the offline 3......",
+    "public": true
+}
 ```
 
