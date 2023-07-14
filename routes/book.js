@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const { body, validationResult } = require('express-validator')
 const {getBooks, getBook, createBook, searchByTitle, searchByKeyword, updateBook, deleteBook} = require('../controllers/book')
+const cache = require('memory-cache');
 
 router.get('/book', async (req,res,next) => {
     console.log(req.query)
@@ -14,9 +15,23 @@ router.get('/book', async (req,res,next) => {
     }
 })
 router.get('/book/:bookId', async (req,res,next) => {
+    const cacheKey = req.params.bookId
+    const cacheData = cache.get(cacheKey)
+    if(cacheData)
+    {
+        console.log('Cache Hit')
+        return res.json(cacheData)
+    }
+    console.log('Cache Miss')
     try{
         const book = await getBook(req.params)
         console.log(book)
+
+        const ttl = 10 * 60 * 1000; // 10 minutes in milliseconds
+
+        // Store the retrieved data in the cache with the specified TTL
+        cache.put(cacheKey, book, ttl);
+
         res.json(book)
     }
     catch(err){

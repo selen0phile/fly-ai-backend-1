@@ -21,6 +21,7 @@
     "firebase-admin": "^11.10.1",
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.1",
+    "memory-cache": "^0.2.0",
     "morgan": "^1.10.0",
     "openai": "^3.3.0",
     "pdfkit": "^0.13.0"

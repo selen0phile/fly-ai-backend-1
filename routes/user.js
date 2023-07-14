@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {getUsers, getSingleUser, deleteUser, createUser, updateUser} = require('../controllers/user')
 const { body, validationResult } = require('express-validator')
+const cache = require('memory-cache');
 
 router.get('/user', async (req, res, next) => {
     try {
@@ -61,8 +62,19 @@ router.put('/user/', [
 })
 
 router.get('/user/:userName', async (req, res, next) => {
+    const cacheKey = req.params.username
+    const cacheData = cache.get(cacheKey)
+    if(cacheData)
+    {
+        console.log('Cache Hit')
+        return res.json(cacheData)
+    }
+    console.log('Cache Miss')
     try {
         const data = await getSingleUser(req.params.userName)
+        const ttl = 5 * 60 * 1000; // 5 minutes in milliseconds
+        // Store the retrieved data in the cache with the specified TTL
+        cache.put(cacheKey, data, ttl);
         res.json(data)
     }
     catch (error) {

@@ -3,6 +3,8 @@ const express = require('express')
 const jwt = require('jsonwebtoken')
 const morgan = require('morgan')
 
+const cache = require('memory-cache');
+
 const cors = require('cors')
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
@@ -44,7 +46,7 @@ app.use(
 app.use('/api/v1', loginRouter)
 app.use('/api/v1', regRouter)
 
-app.use(isAuthorized)
+//app.use(isAuthorized)
 
 app.use('/api/v1', userRouter)
 app.use('/api/v1', bookRouter)
