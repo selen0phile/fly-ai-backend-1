@@ -5,22 +5,11 @@
 # 1. Users
 
 ## a. Get All Books (Paginated)
-Endpoint URL: `/api/v1/book?page=1&per_page=2`  
+Endpoint URL: `/api/v1/book?page=2&per_page=1`  
 Request Artfacts: `None`  
 Example Response:  
 ```json
 [
-  {
-  "id": "64afcf2ba65e541636308f0d",
-  "bookId": 4,
-  "author": "a",
-  "link": "a",
-  "title": "A Brief History of Time",
-  "createdAt": "2023-07-13T10:17:15.588Z",
-  "keywords": "science,physics,time",
-  "description": "The greatest book",
-  "public": true
-  },
   {
   "id": "64afd42c3699a960929d881c",
   "bookId": 5,
