@@ -5,9 +5,9 @@
 # 1. Users
 
 ## Get All Books
-Endpoint URL: `/api/v1/book`
-Request Artfacts: `None`
-Example Response:
+Endpoint URL: `/api/v1/book`  
+Request Artfacts: `None`  
+Example Response:  
 ```json
 [
   {
