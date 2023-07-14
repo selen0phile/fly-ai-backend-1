@@ -10,12 +10,13 @@ const prisma = new PrismaClient()
 const rateLimit = require('express-rate-limit')
 const limiter = rateLimit({
   windowMs : 60 * 1000,
-  max : 5
+  max : 500
 })
 
 // routes 
 const userRouter = require('./routes/user')
 const loginRouter = require('./routes/login')
+const regRouter = require('./routes/reg')
 const bookRouter = require('./routes/book')
 const chatRouter = require('./routes/chat')
 
@@ -29,7 +30,7 @@ const app = express()
 app.use(morgan('dev'))
 
 app.use(express.json())
-// app.use(limiter)
+app.use(limiter)
  
 app.use(
     cors({
@@ -41,8 +42,9 @@ app.use(
 );
   
 app.use('/api/v1', loginRouter)
+app.use('/api/v1', regRouter)
 
-//app.use(isAuthorized)
+app.use(isAuthorized)
 
 app.use('/api/v1', userRouter)
 app.use('/api/v1', bookRouter)

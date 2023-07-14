@@ -70,13 +70,13 @@ router.get('/user/:userName', async (req, res, next) => {
     }
 })
 
-router.delete('/user', [body('username').notEmpty()], async(req, res, next)=> {
+router.delete('/user/:username', async(req, res, next)=> {
     const result = validationResult(req)
     if(result.isEmpty() === false) {
         return res.send({errors: result.array()})
     }
     try {
-        const user = await deleteUser(req.body)
+        const user = await deleteUser(req.params)
         res.json(user)
     }
     catch(error) {

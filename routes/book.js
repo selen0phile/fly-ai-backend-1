@@ -32,7 +32,7 @@ router.post('/book/', async (req, res, next) => {
     }
     try {
         var payload = req.body 
-        payload.author = 'a'
+        payload.author = 'dummy'
         if(req.user !== undefined) {
             payload.author = req.user.username
         }

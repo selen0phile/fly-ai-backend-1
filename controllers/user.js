@@ -19,11 +19,20 @@ const getSingleUser = async (username) => {
 
 const createUser = async (payload) => {
     console.log('controllers/user createUser', payload)
+    var data = {}
+    data.username = payload.username
+    data.password = payload.password
+    if(!(payload.bio == undefined || payload.bio == '')) { 
+        data.bio = payload.bio 
+    }
+    if(!(payload.name == undefined || payload.name == '')) { 
+        data.name = payload.name 
+    }
+    if(!(payload.dp == undefined || payload.dp == '')) { 
+        data.dp = payload.dp 
+    }
     const user = await prisma.user.create({
-        data: {
-            username: payload.username, 
-            password: payload.password,
-        }
+        data: data
     })
     return user
 }

@@ -93,7 +93,7 @@ const searchByKeyword = async (payload) => {
 const getBooks = async (payload) => {
     var query = {}
     var page = 1
-    const per_page = 3
+    var per_page = 3
     console.log(payload)
     if(payload.author !== undefined || payload.author !== '') query.author = { 
         contains : payload.author,
