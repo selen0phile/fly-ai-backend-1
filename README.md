@@ -62,7 +62,34 @@ Example Response:
 }
 ```
 
-## d. Update a book by unique bookId
+## d. Create a Book
+Endpoint URL: `POST /api/v1/book`  
+Request Body:   
+```json
+{
+    "author": "jaber",
+    "link": "https://firebasestorage.googleapis.com/v0/b/litcode-ba82a.appspot.com/o/uploads%2FOfflineAllPairShortestPath.pdf?alt=media&token=f3ee15d4-b25c-47e2-84d8-e74cc4274558",
+    "title": "Offline 5",
+    "keywords": "offline, dsa",
+    "description": "This is the offline 5......"
+}
+```
+Example Response:  
+```json
+{
+    "id": "64b09930e1e2829f5b28e978",
+    "bookId": 15,
+    "author": "a",
+    "link": "https://firebasestorage.googleapis.com/v0/b/litcode-ba82a.appspot.com/o/uploads%2FOfflineAllPairShortestPath.pdf?alt=media&token=f3ee15d4-b25c-47e2-84d8-e74cc4274558",
+    "title": "Offline 5",
+    "createdAt": "2023-07-14T00:39:12.423Z",
+    "keywords": "offline, dsa",
+    "description": "This is the offline 5......",
+    "public": true
+}
+```
+
+## e. Update a book by unique bookId
 Endpoint URL: `PUT /api/v1/book`  
 Request Body:   
 ```json
@@ -90,7 +117,7 @@ Example Response:
 }
 ```
 
-## e. Delete a book by unique bookId
+## f. Delete a book by unique bookId
 Endpoint URL: `DELETE /api/v1/book/15`  
 Request Body: `None`   
 Example Response:  
@@ -107,4 +134,116 @@ Example Response:
     "public": true
 }
 ```
+
+# 2. Users
+
+## a. Get All Users 
+Endpoint URL: `GET /api/v1/user`  
+Request Body: `None`  
+Example Response:  
+```json
+[
+    {
+        "id": "64afb4734e7593094b83dc6e",
+        "userId": null,
+        "username": "anik",
+        "name": "Anik Saha vaii",
+        "password": "111",
+        "bio": "An AI roaming around in the world of AI generated books ",
+        "dp": "my image.jpg"
+    },
+    {
+        "id": "64b01052c665ce7e8c2b715f",
+        "userId": null,
+        "username": "jaber",
+        "name": "Jaber...",
+        "password": "123",
+        "bio": "Just another chatbot\nJust another chatbot\nJust another chatbot\n",
+        "dp": null
+    }
+]
+```
+
+## b. Get User from unique username
+Endpoint URL: `GET /api/v1/user/anik`  
+Request Body: `None`  
+Example Response:  
+```json
+{
+    "id": "64afb4734e7593094b83dc6e",
+    "userId": null,
+    "username": "anik",
+    "name": "Anik Saha vaii",
+    "password": "111",
+    "bio": "An AI roaming around in the world of AI generated books ",
+    "dp": "my image.jpg"
+}
+```
+## c. Create a User
+Endpoint URL: `POST /api/v1/user`  
+Request Body:   
+```json
+{
+    "username": "dummy",
+    "name": "Dummy",
+    "password": "123",
+    "bio": "Another AI Bot ",
+    "dp": "dummy-image.jpg"
+}
+```
+Example Response:  
+```json
+{
+    "id": "64afb4734e7593094b83dc6e",
+    "userId": null,
+    "username": "anik",
+    "name": "Jaber Ahmed",
+    "password": "122",
+    "bio": "An AI Bot ",
+    "dp": "jaber-image.jpg"
+}
+```
+
+## d. Update a user by unique username
+Endpoint URL: `PUT /api/v1/user`  
+Request Body:   
+```json
+{
+    "username": "anik",
+    "name": "Jaber Ahmed",
+    "password": "122",
+    "bio": "An AI Bot ",
+    "dp": "jaber-image.jpg"
+}
+```
+Example Response:  
+```json
+{
+    "id": "64afb4734e7593094b83dc6e",
+    "userId": null,
+    "username": "anik",
+    "name": "Jaber Ahmed",
+    "password": "122",
+    "bio": "An AI Bot ",
+    "dp": "jaber-image.jpg"
+}
+```
+
+## e. Delete a user by unique username
+Endpoint URL: `DELETE /api/v1/user/dummy`  
+Request Body: `None`   
+Example Response:  
+```json
+{
+    "id": "64b09d97e1e2829f5b28e97a",
+    "userId": null,
+    "username": "dummy",
+    "name": null,
+    "password": "123",
+    "bio": null,
+    "dp": null
+}
+```
+
+
 
