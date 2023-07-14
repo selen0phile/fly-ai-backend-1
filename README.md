@@ -272,4 +272,33 @@ Example Response:
 }
 ```
 
+# 4. Chat
+
+## a. Getting response to question from an AI
+
+Endpoint URL: `GET /api/v1/chat/text?prompt=how-are-you`  
+Request Body: `None`
+Example Response:  
+```json
+{
+    "answer": {
+        "role": "assistant",
+        "content": "Thank you for asking! As an AI, I don't have feelings, but I'm here and ready to assist you. How can I help you today?"
+    }
+}
+```
+
+## b. Generating a modular pdf of any topic of specified pages using AI    
+` Returns an URL for the generated PDF`   
+Endpoint URL: `GET /api/v1/chat/pdf?topic=cinderella&pagenum=2`  
+Request Body: `None`
+Example Response:  
+```json
+{
+    "url": "https://storage.googleapis.com/genesis-2ddee.appspot.com/generated/cinderella.pdf?GoogleAccessId=firebase-adminsdk-w1mh4%40genesis-2ddee.iam.gserviceaccount.com&Expires=16730301600&Signature=gBxi7dw3pO445tQVfT1Evb95iK8fRjry4GHdo3StjBOHNig5JY%2Fgwr8fvlVDX0ruW4%2Fnt9jsIgiN7l%2Fj20uSvYEGtHM7whMnjkK0wHIPVKb%2FT1mPDP%2BGvUACUPpWW55KfV4UbHdk3797Y2bouP6KIv4nOrq%2F9S0VX9L6zyLumvPe13QQYDOfd7B%2Fu%2BLNOnbFV7DrQY%2FoJoEXQF6Wwxys2rZeLFCEcVD2ipH7IkXJCCpKM0NhzgDbaY6zROVyH31skffpn69Wm5My9Aydtpy7lqUTss4Ws10mphDore45THc6Wo3LvcU%2BLqioaVtoElDSKFVZCyezzTfwOEIoj8gEsA%3D%3D"
+}
+```
+
+
+
 
