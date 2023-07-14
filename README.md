@@ -1,8 +1,16 @@
 # Fly.AI API Documentation
 
 # API Endpoints
+The API Endpoints belong to 4 major routes. The routes are as follows:   
 
-# 1. Books
+## 1. Book
+## 2. User
+## 3. Login
+## 4. Chat
+
+The respective API endpoints are as follows:    
+
+# 1. Book
 
 ## a. Get All Books (Paginated)
 Endpoint URL: `GET /api/v1/book?page=2&per_page=1`  
@@ -135,7 +143,7 @@ Example Response:
 }
 ```
 
-# 2. Users
+# 2. User
 
 ## a. Get All Users 
 Endpoint URL: `GET /api/v1/user`  
