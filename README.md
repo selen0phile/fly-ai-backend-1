@@ -1,5 +1,12 @@
 # Fly.AI API Documentation
 
+# Rate Limitation   
+Maximum Allowed Requests per hour = 500
+
+# Caching Strategy   
+Books - Server Side Caching - 5 minutes TTL   
+User - Server Side Caching - 10 minutes TTL
+
 # API Endpoints
 The API Endpoints belong to 4 major routes. The routes are as follows:   
 
