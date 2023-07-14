@@ -33,5 +33,5 @@ Example Response:
   "public": true
   }
 ]
-```json
+```
 
