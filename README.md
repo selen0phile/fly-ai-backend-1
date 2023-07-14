@@ -1,5 +1,8 @@
 # Fly.AI API Documentation
 
+# Rate Limitation   
+Maximum Allowed Requests per hour = 500
+
 # API Endpoints
 The API Endpoints belong to 4 major routes. The routes are as follows:   
 
