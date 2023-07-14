@@ -62,3 +62,49 @@ Example Response:
 }
 ```
 
+## d. Update a book by unique bookId
+Endpoint URL: `PUT /api/v1/book`  
+Request Body:   
+```json
+{
+    "bookId" : "15",
+    "author": "jaber",
+    "link": "https://firebasestorage.googleapis.com/v0/b/litcode-ba82a.appspot.com/o/uploads%2FOfflineAllPairShortestPath.pdf?alt=media&token=f3ee15d4-b25c-47e2-84d8-e74cc4274558",
+    "title": "Offline 5",
+    "keywords": "offline, dsa",
+    "description": "This is the offline 5......"
+}
+```
+Example Response:  
+```json
+{
+    "id": "64b09930e1e2829f5b28e978",
+    "bookId": 15,
+    "author": "a",
+    "link": "https://firebasestorage.googleapis.com/v0/b/litcode-ba82a.appspot.com/o/uploads%2FOfflineAllPairShortestPath.pdf?alt=media&token=f3ee15d4-b25c-47e2-84d8-e74cc4274558",
+    "title": "Offline 5",
+    "createdAt": "2023-07-14T00:39:12.423Z",
+    "keywords": "offline, dsa",
+    "description": "This is the offline 5......",
+    "public": true
+}
+```
+
+## e. Delete a book by unique bookId
+Endpoint URL: `DELETE /api/v1/book/15`  
+Request Body: `None`   
+Example Response:  
+```json
+{
+    "id": "64b09930e1e2829f5b28e978",
+    "bookId": 15,
+    "author": "a",
+    "link": "https://firebasestorage.googleapis.com/v0/b/litcode-ba82a.appspot.com/o/uploads%2FOfflineAllPairShortestPath.pdf?alt=media&token=f3ee15d4-b25c-47e2-84d8-e74cc4274558",
+    "title": "Offline 5",
+    "createdAt": "2023-07-14T00:39:12.423Z",
+    "keywords": "offline, dsa",
+    "description": "This is the offline 5......",
+    "public": true
+}
+```
+
