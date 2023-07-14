@@ -244,6 +244,32 @@ Example Response:
     "dp": null
 }
 ```
+# 3. Login
 
+## a. User Login and receiving a web token 
+
+Endpoint URL: `GET /api/v1/login`  
+Request Body:  
+```json
+{
+    "username": "anik",
+    "password": "122"
+}
+```
+Example Response:  
+```json
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuaWsiLCJpZCI6IjY0YWZiNDczNGU3NTkzMDk0YjgzZGM2ZSIsImlhdCI6MTY4OTI5NzAwMX0.2DD_2XMuqOn7nGF24KL5wtvujHfr7YnY0C1RoPsiai8",
+    "user": {
+        "id": "64afb4734e7593094b83dc6e",
+        "userId": null,
+        "username": "anik",
+        "name": "Jaber Ahmed Deedar",
+        "password": "122",
+        "bio": "An AI Bot ",
+        "dp": "jaber-image.jpg"
+    }
+}
+```
 
 
