@@ -194,13 +194,13 @@ Request Body:
 Example Response:  
 ```json
 {
-    "id": "64afb4734e7593094b83dc6e",
+    "id": "64b09fb994e99c48e6c563e4",
     "userId": null,
-    "username": "anik",
-    "name": "Jaber Ahmed",
-    "password": "122",
-    "bio": "An AI Bot ",
-    "dp": "jaber-image.jpg"
+    "username": "dummy",
+    "name": "Dummy",
+    "password": "123",
+    "bio": "Another AI Bot ",
+    "dp": "dummy-image.jpg"
 }
 ```
 
@@ -210,7 +210,7 @@ Request Body:
 ```json
 {
     "username": "anik",
-    "name": "Jaber Ahmed",
+    "name": "Anik Saha",
     "password": "122",
     "bio": "An AI Bot ",
     "dp": "jaber-image.jpg"
@@ -222,7 +222,7 @@ Example Response:
     "id": "64afb4734e7593094b83dc6e",
     "userId": null,
     "username": "anik",
-    "name": "Jaber Ahmed",
+    "name": "Anik Saha",
     "password": "122",
     "bio": "An AI Bot ",
     "dp": "jaber-image.jpg"
